@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<style>
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+h2 { 
+    margin-left: 40%;
+}
+
+.anchor {
+    margin-left: 30%;
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background-color: #4CAF50;
+    display: inline-block;
+    border: 1px solid #ccc;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+    margin-left: 25%;
+    width: 50%;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+</style>
+<body>
+
+<h2>Name Certifying Service</h2>
+
+
+  <div class="container">
+    <label>You have succesfully registered your name. Please download your certificate, private key.</label><br /> <br />
+
+    <label><b>Certificate</b></label> <br />        
+    <a class="anchor" href="{{ certificate_path }}" download>Download Certificate</a>
+
+    <br /> <br />
+
+    <label><b>Private Key</b></label> <br />        
+    <a class="anchor" href="{{ private_key_path }}" download> Download Private Key</a>
+
+    <br /> <br />
+    <label>Use these credentials to customize your domain from here </label> <br /> 
+    <a class="anchor" href="http://gns.opengns.com/index.html" > Managed DNS Service</a>
+
+
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer; 
+}
+h2 { 
+    margin-left: 40%;
+}
+
+
+/* Float cancel and signup buttons and add an equal width */
+.cancelbtn,.signupbtn {
+    float: center;
+    margin-left: 25%;
+    width: 50%;
+}
+
+/* Add padding to container elements */
+.container {
+    padding: 16px;
+    border:1px;
+    margin-left: 20%;
+    width: 50%;
+}
+
+/* Clear floats */
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.signupbtn {
+    width: 50%;
+    border-radius: 25px;
+}
+
+</style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            //alert("dfjhfdj");
+            active_tab = "div1";
+            $("#div1").show();
+            $("#div2").hide();
+
+            $("#home").click(function() {
+                $("#div1").show();
+                $("#div2").hide();
+            });
+
+            $("#register").click(function() {
+                $("#div2").show();
+                $("#div1").hide();
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+<h2>Name Certifying Service</h2>
+<div class="container">
+    <button id="home"> Home</button>
+    <button id="register">Register</button>
+</div>
+<div id="div1" class="container">
+    <p>
+        <b>MobilityFirst</b>
+        <br />
+        <br />
+        MobilityFirst is a new age internet architecture which is designed to solve the problem of mobility,
+        trustworthiness as current internet architecture cannot address these issues robustly. In the existing internet 
+        architecture both identity of endpoint-device and location are represented by a single IP address and that is the 
+        reason when a endpoint-device changes from one-network to another network, network stack does not guarantee seamless 
+        transmission from one network to another network. Mobile IP solves the problem of mobility up to some extent but that 
+        is not scalable for internet.
+
+        
+        <br />
+
+        Mobility First identifies an endpoint by <i>GUID</i> which is hash of the public key of the endpoint. It could have many 
+        attributes out of which location (ip address) could be one of those, human readable name could be one of those (as GUID which is 
+        generally a hash are difficult to remember)
+        To solve the problem of mobility, location attribute for a <i>GUID</i> should be updated immediately  when one moves from one 
+        network to another.We cannot use the current method in which DNS records are updated, as it could take couple of hours in 
+        updating the ip-address. To update the attributes immediately Mobility First uses Global Name Service (GNS).
+
+        <br />
+        <br />
+
+        <b>Global Name Service (GNS) </b>
+
+        <br />
+        <br />
+
+        Global Name Service is highly scalable distributed name service which stores not only the Ip addresses but also other extensible attributes.
+        It could also be configured as managed dns service and could be used with current internet architecture. GNS internally uses Gigapaxos as 
+        key-value database store.In case of GNS keys are <i>GUID</i> and value could be any attributes.
+
+        <br />
+        <br />
+
+        <b> Name Certififying Service:</b>
+         
+        <br />
+        <br />
+
+        Suppose a node X (sender) wants to communicate with the node Y (receiver). For communicating with a node, the sender needs to know <i>GUID</i> of Y.
+        Public key is generally a string of fixed length and unique to a node. These are difficult to remember typically. 
+        So we associate a name with public key similar to what we do in SSL certificate. This requires a service like Name Certifying Service (NCS) 
+        which binds a name and a public key of a given node.If there is no such entity then anyone could come up with a name which would have been 
+        used by other node. Also in GNS we could have arbitrary strings representing an idenitity or organization.
+        
+    </p>
+</div>
+
+<form action="/submitdata" method="POST" enctype=multipart/form-data>
+  <div id="div2" class="container">
+
+    <label><b>First Name*</b></label>
+    <input type="text" placeholder="First name of the person registering name" name="first_name" required>
+
+    <label><b>Last name*</b></label>
+    <input type="text" placeholder="Last name of the person registering name" name="last_name" required>
+
+    <label><b>Globally Unique Name*</b></label>
+    <input type="text" placeholder="Name you want to register" name="website" required>
+
+    <label><b>GNS Provider name</b></label>
+    <input type="text" placeholder="gnsprovider name" name="gns_provider" value= "opengns.com" readonly>
+
+    <label><b>Email</b></label>
+    <input type="text" placeholder="Email" name="email">
+ 
+    <label><b>Mobile number</b></label>
+    <input type="text" placeholder="Mobile number" name="phone">
+
+    <label><b>Address</b></label>
+    <input type="text" placeholder="Address" name="address">
+
+    <label><b>City</b></label>
+    <input type="text" placeholder="City" name="city">
+
+    <label><b>State</b></label>
+    <input type="text" placeholder="State" name="state">
+
+    <label><b>Country</b></label>
+    <input type="text" placeholder="Country" name="country">
+
+
+   <label><b>Fields marked with * are required</b></label>
+    <div class="clearfix">
+      <button type="submit" class="signupbtn">Submit</button>
+    </div>
+  </div>
+</form>
+
+</body>
+</html>
