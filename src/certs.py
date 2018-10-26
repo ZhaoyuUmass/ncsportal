@@ -52,7 +52,7 @@ def get_byte_stream_for_file(path_for_file):
     with open(path_for_file, 'r') as handle:
         byteString = handle.read()
 
-    return byteString
+    return byteString.encode('utf-8')
 
     # create a client certificate given client_details 
 def create_certificate_for_client(client_details):
@@ -74,11 +74,11 @@ def create_certificate_for_client(client_details):
 
     builder = CertificateBuilder(
         {
-            u'country_name': client_details['country'].decode('utf-8'),
-            u'state_or_province_name': client_details['state'].decode('utf-8'),
-            u'locality_name': client_details['city'].decode('utf-8'),
-            u'organization_name': client_details['name'].decode('utf-8'),
-            u'common_name': get_dns_formatted_name(client_details['domain_name']).decode('utf-8'),
+            u'country_name': client_details['country'], #.decode('utf-8'),
+            u'state_or_province_name': client_details['state'], #.decode('utf-8'),
+            u'locality_name': client_details['city'], #.decode('utf-8'),
+            u'organization_name': client_details['name'], #.decode('utf-8'),
+            u'common_name': get_dns_formatted_name(client_details['domain_name']), #.decode('utf-8'),
         },
         client_public_key
     )

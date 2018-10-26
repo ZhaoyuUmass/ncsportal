@@ -71,4 +71,4 @@ def get_dns_formatted_name(input_word):
 
 if __name__ == "__main__":
     name = "r@mtej@"
-    print get_dns_formatted_name(name)
+    # print get_dns_formatted_name(name)

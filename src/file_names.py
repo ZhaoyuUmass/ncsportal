@@ -24,4 +24,4 @@ def get_private_key_name(name):
 
 
 if __name__ == "__main__":
-    print get_certificate_name("ram teja"), get_public_key_name("ram teja"), get_private_key_name("ram teja")
+    print(get_certificate_name("ram teja"), get_public_key_name("ram teja"), get_private_key_name("ram teja"))
